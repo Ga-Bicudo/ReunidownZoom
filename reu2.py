@@ -1,12 +1,27 @@
-import http.client
+import requests
+import json
 
-conn = http.client.HTTPSConnection("api.zoom.us")
+def acessarapi():
+    headers = { 'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ5Q2tydWs4bVNCdThYVW9yam1oSnpnIiwiZXhwIjoxNDk2MDkxOTY0MDAwfQ.XhXx65hbXEa8mBPcW7CNxsgxSGTKHhEws8bM3ncxMHo" }
+    numpag = {'page_size':'300','page_number':npzoom}
+    conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params=numpag)
+    return(conn)
 
-headers = { 'authorization': "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ5Q2tydWs4bVNCdThYVW9yam1oSnpnIiwiZXhwIjoxNDk2MDkxOTY0MDAwfQ.XhXx65hbXEa8mBPcW7CNxsgxSGTKHhEws8bM3ncxMHo" }
+res = acessarapi().json() #conn.jason()
 
-conn.request("GET", "/v2/accounts?page_number=1&page_size=30", headers=headers)
+def acessarapi2():
+    if res['page_number'] < res['page_count']:
+        
 
-res = conn.getresponse()
-data = res.read()
+#ordem = json.loads(res)
 
-print(data.decode("utf-8"))
+
+"""for accounts in [res]:
+     print("id:",[id])"""
+
+lista_contas = res['accounts'] 
+
+  
+print(type(lista_contas))
+
+print(len(lista_contas))
