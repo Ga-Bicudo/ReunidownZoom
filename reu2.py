@@ -2,6 +2,7 @@ import requests
 import json
 import testeapi
 
+
 res = testeapi.acessarapi().json() #conn.jason()
 
 def calculopag():
@@ -10,12 +11,23 @@ def calculopag():
        while npzoom < res['page_count']:
            npzoom = npzoom + 1
            return(npzoom)
+    def calculapagsize():
+        z = res['page_size']
+        x = (res['total_records'] - z)
+        while x <= 0:
+           y = x - z
+           x = y 
+           print(x)
+           return() 
+        
            
-res2 = testeapi.acessarapi2().json()
+for paginasjson in [testeapi.acessarapi2().json()]:
+    print([paginasjson], "/n")
 
-lista_contas = res['accounts'] 
+#print(res)
+#lista_contas = res['accounts'] 
 
   
-print(type(lista_contas))
+#print(type(lista_contas))
 
-print(len(lista_contas))
+#print(len(lista_contas))
