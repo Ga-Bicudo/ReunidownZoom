@@ -1,23 +1,17 @@
 import requests
 import json
+import testeapi
 
-def acessarapi():
-    headers = { 'authorization': "Bearer " }
-    numpag = {'page_size':'300','page_number':npzoom}
-    conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params=numpag)
-    return(conn)
+res = testeapi.acessarapi().json() #conn.jason()
 
-res = acessarapi().json() #conn.jason()
-
-def acessarapi2():
-    if res['page_number'] < res['page_count']:
-        
-
-#ordem = json.loads(res)
-
-
-"""for accounts in [res]:
-     print("id:",[id])"""
+def calculopag():
+    if res['page_count'] > res['page_number']:
+       npzoom = res['page_number']
+       while npzoom < res['page_count']:
+           npzoom = npzoom + 1
+           return(npzoom)
+           
+res2 = testeapi.acessarapi2().json()
 
 lista_contas = res['accounts'] 
 
