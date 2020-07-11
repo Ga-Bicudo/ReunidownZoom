@@ -2,7 +2,7 @@ import json
 import requests
 import reu2
 
-key = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ5Q2tydWs4bVNCdThYVW9yam1oSnpnIiwiZXhwIjoxNDk2MDkxOTY0MDAwfQ.XhXx65hbXEa8mBPcW7CNxsgxSGTKHhEws8bM3ncxMHo"
+key = "Bearer "
 
 def acessarapi():  #apenas acesa a api e retorna o resultado
     headers = { 'authorization': key}
