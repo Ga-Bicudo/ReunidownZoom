@@ -1,7 +1,7 @@
 import json
 import requests
 
-key = "Bearer xx"
+key = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InlDa3J1azhtU0J1OFhVb3JqbWhKemciLCJleHAiOjE1OTg5MDc1NjAsImlhdCI6MTU5ODkwMjE2MX0.iO0-2LF1_Dle8_sZ-2w4nghfUG_xz9Ky2nNzvYHBpuI"
 headers = { 'authorization': key}
 conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params={'page_number':1}).json()
 
@@ -18,19 +18,20 @@ def acessarapi(n_pag):  #apenas acesa a api e retorna o resultado
     conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params=numpag).json()
     contas = conn['accounts']
     
-    for i in contas:
-        print("\n")
-        for j in i:
-            print(j,"=",i[j])
-
-
-    ###testeapi.lista_subcontas.append()
-    print(len(contas))  
+    for i in contas: # i é cada dict que guarda a informação de cada conta.
+        """print("\n")
+        print(i)"""
+        lista_subcontas.append(i) #adiciona todas as contas em uma somente lista.
+        """for j in i:
+            print(j,"=",i[j])"""
     return
 
 while n_pag <= paginas:
     acessarapi(n_pag)
-    print("pagina numero:",n_pag)
+    ###print("pagina numero:",n_pag)
     n_pag = n_pag + 1
     
+    
+for i in lista_subcontas:
+     i['id']
 
