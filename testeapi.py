@@ -1,7 +1,7 @@
 import json
 import requests
 
-key = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InlDa3J1azhtU0J1OFhVb3JqbWhKemciLCJleHAiOjE1OTg5MDc1NjAsImlhdCI6MTU5ODkwMjE2MX0.iO0-2LF1_Dle8_sZ-2w4nghfUG_xz9Ky2nNzvYHBpuI"
+key = "Bearer xx"
 headers = { 'authorization': key}
 conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params={'page_number':1}).json()
 
