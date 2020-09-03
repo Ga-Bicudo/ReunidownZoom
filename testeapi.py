@@ -32,6 +32,8 @@ while n_pag <= paginas:
     acessarapi(n_pag)
     ###print("pagina numero:",n_pag)
     n_pag = n_pag + 1
+
+    
     
 print(lista_subcontas)
 print(len(lista_subcontas))
