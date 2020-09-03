@@ -1,9 +1,11 @@
 import json
 import requests
 
-key = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InlDa3J1azhtU0J1OFhVb3JqbWhKemciLCJleHAiOjE1OTg5MDc1NjAsImlhdCI6MTU5ODkwMjE2MX0.iO0-2LF1_Dle8_sZ-2w4nghfUG_xz9Ky2nNzvYHBpuI"
+key = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6InlDa3J1azhtU0J1OFhVb3JqbWhKemciLCJleHAiOjE1OTk3NjY5MjAsImlhdCI6MTU5OTE2MjEyMH0.P1_J61eyRXv_JQuUx0tl4cNlTZ_iEr-xiijeOgrbRsg"
 headers = { 'authorization': key}
 conn = requests.request("GET", "https://api.zoom.us/v2/accounts", headers=headers, params={'page_number':1}).json()
+
+#print(conn)
 
 n_pag = conn['page_number']
 
@@ -31,7 +33,8 @@ while n_pag <= paginas:
     ###print("pagina numero:",n_pag)
     n_pag = n_pag + 1
     
-    
-for i in lista_subcontas:
-     i['id']
+print(lista_subcontas)
+print(len(lista_subcontas))
 
+#precisa apenas adicionar todos clientes em uma lista, 
+# cada cliente c seu indice e depois fazer um looping inserindo cada um em uma posição do banco
